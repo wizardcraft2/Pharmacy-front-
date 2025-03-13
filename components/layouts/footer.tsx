@@ -16,7 +16,7 @@ const Footer = () => {
             })}
         >
             <Text color="black" className="opacity-50" size={14} weight={400}>
-                1111Copyright © 2025 Pharmacy Wiki. All rights reserved.
+                Copyright © 2025 Pharmacy Wiki. All rights reserved.
             </Text>
             <Flex
                 gap={40}

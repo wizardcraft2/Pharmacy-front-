@@ -42,6 +42,10 @@ const Pagination: FC<Props> = ({
                     }
                     forcePage={pageIndex}
                     renderOnZeroPageCount={null}
+                    pageClassName="page-item"
+                    pageLinkClassName="page-link"
+                    containerClassName="pagination"
+                    initialPage={0}
                 />
             </nav>
         </Box>
