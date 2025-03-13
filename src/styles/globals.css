@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+    font-family: 'sans-font';
+    src: url('../../public/fonts/SFPRODISPLAYREGULAR.OTF');
+}
+
+
+@font-face {
+    font-family: 'sans-font-thin';
+    src: url('../../public/fonts/FontsFree-Net-SFProDisplay-Thin.ttf');
+}
+
+p,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+text,
+input,
+label,
+span,
+table,
+tr,
+td,
+textarea,
+th {
+    font-family: 'sans-font' !important;
+    color: '#18232A';
+}
+
+.mantine-AppShell-body, .mantine-AppShell-main {
+    background: rgba(199, 199, 199, 0.1)
+}
+
+.font-thin {
+    font-family: 'sans-font-thin' !important;
+}
+
+#paginationWrapper ul{
+    display: flex;
+}
+.home-search .mantine-Input-input {
+    background-color: rgba(255, 255, 255, 0.4);
+    border: 1px solid;
+    border-image-source: linear-gradient(120deg, 
+        #ffffff00 0%,
+        #ffffffff 25%,
+        #ffffffff 66%,
+        #ffffff00 100%
+    );
+    border-image-slice: 1;
+    padding: 27.5px;
+    color: #1D1D1F !important;
+    font-style: normal !important;
+    font-weight: 400;
+}
+.home-search .mantine-Input-input::placeholder {
+    color: #84828C;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#paginationWrapper a {
+    padding: 4px 6px !important;
+    height: 20px !important;
+    border-radius: 100px !important;
+
+}
+
+.trade-search input {
+    outline: none;
+    border: none;
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+    min-height: 40px !important;
+    height: 40px;
+}
+
+.tbl-row:hover {
+    background-color: rgb(121, 145, 190, 0.5) !important;
+}
+
+.trade-search input::placeholder {
+    color: #1D1D1F80;
+}
+.sponsor-img {
+    width: 120px;
+    height: 120px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+.header-input .mantine-Input-input {
+    min-height: 24px;
+    height: 24px;
+    border: none;
+    background-color: #F3F3F3;
+
+}
+.sf-pro-text {
+    font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+.sf-pro-display {
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+.mantine-Header-root *{
+    font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+}
+#paginationWrapper ul li a{
+    box-sizing: border-box;
+    display: flex;
+    padding: 5px 10px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border-radius: .375rem;
+    --tw-border-opacity: 1;
+    border-color: none;
+    text-align: center;
+    font-family: Mona Sans, sans-serif;
+    font-size: 13px;
+    line-height: 1.5rem;
+    --tw-text-opacity: 1;
+    text-decoration-line: none;
+    background-color: white;
+    font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+#paginationWrapper ul li {
+    color: gray;
+    margin-left: 10px;
+}
+
+.selected {
+    color: #6B9FFF !important;
+    font-weight: bold;
+}
