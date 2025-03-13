@@ -18,7 +18,7 @@ const Pagination: FC<Props> = ({
     pageIndex
 }) => {
     const handlePageClick = (event: any) => {
-        setPageIndex(event.selected);
+        setPageIndex(event.selected + 1);
     };
 
     return (
@@ -34,18 +34,17 @@ const Pagination: FC<Props> = ({
                         <FaAngleRight />
                     }
                     onPageChange={handlePageClick}
-                    pageRangeDisplayed={2}
+                    pageRangeDisplayed={3}
                     pageCount={totalPageCount}
                     marginPagesDisplayed={3}
                     previousLabel={
                         <FaAngleLeft />
                     }
-                    forcePage={pageIndex}
+                    forcePage={pageIndex - 1}
                     renderOnZeroPageCount={null}
                     pageClassName="page-item"
                     pageLinkClassName="page-link"
                     containerClassName="pagination"
-                    initialPage={0}
                 />
             </nav>
         </Box>
