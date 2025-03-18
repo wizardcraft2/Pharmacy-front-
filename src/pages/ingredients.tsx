@@ -7,7 +7,7 @@ import { Box, Flex, Grid, LoadingOverlay, Skeleton, Table, Text } from "@mantine
 import { IconCircleFilled } from "@tabler/icons-react";
 import { useState, useEffect } from "react";
 
-const Ingredents = () => {
+const Ingredients = () => {
     const [data, setData] = useState<any>([]);
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [perPage, setPerpage] = useState<number>(70);
@@ -20,9 +20,22 @@ const Ingredents = () => {
     const fetchData = async () => {
         setIsLoading(true);
         try {
-            const res = await getData({ page_index: pageIndex, per_page: perPage });
-            setData(res.data);
-            setTotalPageCount(Math.floor(res.total_count / perPage));
+            const res = await getData({ 
+                page_index: pageIndex, 
+                per_page: perPage,
+            });
+            
+            console.log('API Response:', res);
+            
+            // If the data is nested in categories, we need to extract all ingredients
+            const flattenedData = res.data.ingredients || res.data;
+            
+            // If it's still categorized, flatten it
+            const finalData = Array.isArray(flattenedData) ? flattenedData : 
+                Object.values(flattenedData).flat();
+            
+            setData(finalData);
+            setTotalPageCount(Math.ceil(res.total_count / perPage));
         } catch (e) {
             console.log(e);
         }
@@ -74,23 +87,24 @@ const Ingredents = () => {
                         </Box>
                         <Box mt={30}>
                             <Grid>
-                                {
-                                    data.map((item: any) =>
-                                        <Grid.Col sm={6} md={6}>
+                                {data.map((item: any, index: number) => {
+                                    if (index == 0 || index == 1) console.log(item);
+                                    return (
+                                        <Grid.Col sm={6} md={6} key={index}>
                                             <Flex gap={10} align='center' className="cursor-pointer"
                                                 onClick={() => {
                                                     setDetail(item);
-                                                    setShowDetail(true);
-                                                }}
-                                            >
-                                                <IconCircleFilled size={10} />
-                                                <Text className="opacity-50 sf-pro-text" size={14} weight={400}>
-                                                    {item.name}
-                                                </Text>
-                                            </Flex>
-                                        </Grid.Col>
-                                    )
-                                }
+                                                setShowDetail(true);
+                                            }}
+                                        >
+                                            <IconCircleFilled size={10} />
+                                            <Text className="opacity-50 sf-pro-text" size={14} weight={400}>
+                                                {item.name}
+                                            </Text>
+                                        </Flex>
+                                    </Grid.Col>
+                                )
+                            })}
                             </Grid>
                         </Box>
                         <Pagination
@@ -106,4 +120,4 @@ const Ingredents = () => {
     )
 }
 
-export default Ingredents;
+export default Ingredients;
